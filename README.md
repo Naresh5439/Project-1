@@ -175,41 +175,19 @@ We are downloading Alloi's installation files, updating them, and preparing a cl
 
 
 # Step 5: Configure DNS
-### What are we doing in this step?
-When you want to visit Alloi using a domain like alloi.yourdomain.com, your computer needs to know where that website is hosted.
-DNS (Domain Name System) is like the phonebook of the internet — it converts the domain name into an IP address (like a phone number).
-
-We will:
-Find the IP address (or hostname) of the load balancer created by Kubernetes.
-Create a DNS record that connects alloi.yourdomain.com to that IP.
-
-### 1. Get your Load Balancer IP/hostname
+### Get your load balancer IP/hostname
 ```
 kubectl get svc -n ingress-nginx ingress-nginx-controller
 ```
-### What this does:
-It checks the ingress-nginx namespace for the ingress-nginx-controller service.
-This service is like the main gate through which people access Alloi.
-
-The output will show something like:
+### Point your domain to the load balancer Create DNS A record: alloi.yourdomain.com -> [LOAD_BALANCER_IP]
+I am using my localhost instead od domain so that i have modified the below path
 ```
-NAME                       TYPE           CLUSTER-IP      EXTERNAL-IP      PORT(S)
-ingress-nginx-controller   LoadBalancer   10.0.1.5        34.120.45.67     80:32224/TCP
+sudo nano /etc/hosts
 ```
-### Here, 34.120.45.67 (under EXTERNAL-IP) is the IP address of your Load Balancer.
-
-### 2. Point your domain to the Load Balancer
-### What this means:
-In your domain provider (like GoDaddy, Namecheap, or Cloudflare), create a DNS A record:
+### Added this line at the end of the data already present in this path
 ```
-alloi.yourdomain.com  ->  34.120.45.67
+127.0.0.1   alloi.localhost
 ```
-### This tells the world:
-“Whenever someone types alloi.yourdomain.com, send them to IP 34.120.45.67 (our load balancer).”
-
-### In super simple words:
-We are telling the "internet phonebook" that alloi.yourdomain.com should connect to our Kubernetes load balancer.
-
 
 # Step 6: Configure values.yaml
 ### What is values.yaml?
