@@ -138,7 +138,7 @@ We are creating a namespace in Kubernetes called alloi (like creating a separate
 
 ### 1. Clone the repository
 ```
-git clone https://github.com/opshealth/alloi-public-charts.git
+git clone --branch INFRA-11-restructure-alloi-stack-and-dependencies https://github.com/opshealth/alloi-public-charts.git
 ```
 ### What this does:
 Downloads the Alloi public charts from GitHub (like copying a folder from the internet onto your computer).
