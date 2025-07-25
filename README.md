@@ -8,5 +8,11 @@ cert-manager – A teacher who gives out "certificates" (SSL certificates) so th
 
 NGINX ingress controller – A gatekeeper who controls which class (service) a visitor should go to when they enter the school.
 
+## Commands Explanation
+## 1. Install cert-manager
+```
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.12.0/cert-manager.yaml
+```
+
 
 
