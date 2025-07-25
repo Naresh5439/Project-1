@@ -13,6 +13,10 @@ NGINX ingress controller – A gatekeeper who controls which class (service) a v
 ```
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.12.0/cert-manager.yaml
 ```
+### What this does:
+Downloads the cert-manager setup file from the internet and tells Kubernetes to install it.
+This will allow our cluster to create SSL certificates (like a lock on your website).
+
 
 
 
